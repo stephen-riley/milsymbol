@@ -443,9 +443,11 @@ def textfields(symbol):
     # The font size is the baseline? BBox needs to cover ascent/descent.
     # Simplified approximation:
     if g_strings["L1"] or g_strings["R1"]:
-        gbbox.y1 = min(gbbox.y1, 100 - 2 * font_size)
+        # y is 100 - 1.5 * fs. Ascent is approx 1 fs. So top is 100 - 2.5 fs.
+        gbbox.y1 = min(gbbox.y1, 100 - 2.5 * font_size)
     if g_strings["L2"] or g_strings["R2"]:
-        gbbox.y1 = min(gbbox.y1, 100 - 1 * font_size)
+        # y is 100 - 0.5 * fs. Top is 100 - 1.5 fs.
+        gbbox.y1 = min(gbbox.y1, 100 - 1.5 * font_size)
 
     if g_strings["L5"] or g_strings["R5"]:
         gbbox.y2 = max(gbbox.y2, 100 + 3 * font_size)
