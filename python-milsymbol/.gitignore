@@ -3,6 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 *.svg
+!**/references/*.svg
 *.png
 .DS_Store
 .venv
@@ -10,3 +11,4 @@ env/
 dist/
 build/
 *.egg-info/
+tests/output/

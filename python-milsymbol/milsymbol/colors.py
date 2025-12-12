@@ -14,6 +14,24 @@ def get_color_mode(mode):
             unknown="rgb(255,255,128)"
         )
     # Fallback or other modes
+    if mode == "Black":
+        return ColorMode(civilian="black", friend="black", hostile="black", neutral="black", unknown="black")
+    if mode == "White":
+        return ColorMode(civilian="white", friend="white", hostile="white", neutral="white", unknown="white")
+    if mode == "OffWhite":
+        return ColorMode(civilian="rgb(239,239,239)", friend="rgb(239,239,239)", hostile="rgb(239,239,239)", neutral="rgb(239,239,239)", unknown="rgb(239,239,239)")
+    if mode == "None":
+        return ColorMode(civilian=False, friend=False, hostile=False, neutral=False, unknown=False)
+        
+    if mode == "Light":
+        return ColorMode(
+            civilian="rgb(128,0,128)",
+            friend="rgb(128,224,255)",
+            hostile="rgb(255,128,128)",
+            neutral="rgb(170,255,170)",
+            unknown="rgb(255,255,128)"
+        )
+    # Default (Medium/Standard)
     return ColorMode(
         civilian="rgb(128,0,128)",
         friend="rgb(0,226,255)",

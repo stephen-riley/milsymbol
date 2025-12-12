@@ -8,8 +8,7 @@ setup(
     author="Antigravity",
     packages=find_packages(),
     install_requires=[
-        # No strict dependencies for SVG generation
-        "cairosvg", # Optional for PNG
+        "cairosvg",
     ],
     extras_require={
         "png": ["cairosvg>=2.0.0"],

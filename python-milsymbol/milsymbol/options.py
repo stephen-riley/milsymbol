@@ -63,7 +63,7 @@ class SymbolStyle:
         self.outlineWidth = 0  # Width of the outline.
         self.padding = 0  # Extra padding around the symbol
         self.simpleStatusModifier = False  # Force use of simple status modifiers
-        self.size = 100  # The symbol size is actually the L variable in the symbols so the symbol will be larger than this size.
+        self.size = 300  # The symbol size is actually the L variable in the symbols so the symbol will be larger than this size.
         self.square = False  # If the symbol should be square
         self.standard = ""  # Set standard override
         self.strokeWidth = 4  # The stroke width of he icon frame.

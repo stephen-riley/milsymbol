@@ -21,6 +21,22 @@ def get_metadata_letter(symbol, metadata, mapping):
     symbolmodifier11 = sidc[10] if len(sidc) > 10 else "-"
     symbolmodifier12 = sidc[11] if len(sidc) > 11 else "-"
     
+    # Echelon mapping (Letter based)
+    # Table B-III
+    echelon_map = {
+        "A": "Team/Crew", "B": "Squad", "C": "Section", 
+        "D": "Platoon/detachment", "E": "Company/battery/troop", 
+        "F": "Battalion/squadron", "G": "Regiment/group", 
+        "H": "Brigade", "I": "Division", "J": "Corps/MEF",
+        "K": "Army", "L": "Army Group/front", "M": "Region/Theater", 
+        "N": "Command"
+    }
+    
+    # In Letter SIDC, pos 12 (index 11) is Echelon if Installation not set? Or separate?
+    # Standards vary, but "D" provided by user is Platoon.
+    if symbolmodifier12 in echelon_map:
+        metadata["echelon"] = echelon_map[symbolmodifier12]
+    
     if affiliation in ["H", "S", "J", "K"]:
         metadata["affiliation"] = mapping["affiliation"][0] # Hostile
     elif affiliation in ["F", "A", "D", "M"]:

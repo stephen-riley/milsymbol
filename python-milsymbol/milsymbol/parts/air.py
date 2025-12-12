@@ -15,14 +15,19 @@ def define_air_icons(icon_parts, metadata, colors, std2525):
     icn["AR.I.CIVILIAN"] = text("CIV")
     # ... Simplified for brevity, porting main ones ...
     
+
     icn["AR.I.MILITARY FIXED WING"] = {
         "type": "path",
-        "d": "M100,100 L130,88 c15,0 15,24 0,24 L100,100 70,112 c-15,0 -15,-24 0,-24 Z"
+        "d": "M100,100 L130,88 c15,0 15,24 0,24 L100,100 70,112 c-15,0 -15,-24 0,-24 Z",
+        "fill": icon_color,
+        "stroke": False
     }
 
     icn["AR.I.MILITARY ROTARY WING"] = {
         "type": "path",
-        "d": "M60,85 l40,15 40,-15 0,30 -40,-15 -40,15 z"
+        "d": "M60,85 l40,15 40,-15 0,30 -40,-15 -40,15 z",
+        "fill": icon_color,
+        "stroke": False
     }
     
     icn["AR.I.FIGHTER"] = text("F")

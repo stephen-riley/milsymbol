@@ -33,7 +33,7 @@ def icon(symbol, ms=None):
             from ..sidc.lettersidc import sea as sea_sidc
             from ..sidc.lettersidc import subsurface as subsurface_sidc
             
-            ground_sidc.ground(icons, None, icon_parts, metadata.get("STD2525"))
+            ground_sidc.ground(icons, None, icon_parts, metadata.get("STD2525"), metadata=metadata, colors=colors)
             air_sidc.air(icons, None, icon_parts, metadata.get("STD2525"), metadata=metadata, colors=colors)
             sea_sidc.sea(icons, None, icon_parts, metadata.get("STD2525"), metadata=metadata, colors=colors)
             subsurface_sidc.subsurface(icons, None, icon_parts, metadata.get("STD2525"), metadata=metadata, colors=colors)

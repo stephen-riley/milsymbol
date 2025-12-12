@@ -1,4 +1,5 @@
 
+import os
 from milsymbol import Symbol
 
 def test_modifiers():
@@ -9,8 +10,7 @@ def test_modifiers():
                     higherFormation="1st Battalion",
                     speed="30 kph",
                     reinforcedReduced="+",
-                    staffComments="Moving East",
-                    size=30)
+                    staffComments="Moving East")
     
     svg = symbol.as_svg()
     print("SVG Generated length:", len(svg))
@@ -19,11 +19,14 @@ def test_modifiers():
         print("Found Unique Designation in SVG")
     else:
         print("Unique Designation NOT found in SVG")
-        
-    with open("test_modifiers.svg", "w") as f:
+    
+    output_dir = os.path.join(os.path.dirname(__file__), "output")
+    os.makedirs(output_dir, exist_ok=True)
+    
+    with open(os.path.join(output_dir, "test_modifiers.svg"), "w") as f:
         f.write(svg)
         
-    print("Saved to test_modifiers.svg")
+    print(f"Saved to {output_dir}/test_modifiers.svg")
 
 if __name__ == "__main__":
     test_modifiers()

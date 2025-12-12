@@ -20,6 +20,8 @@ class Symbol:
             
         if kwargs:
             self.set_options(**kwargs)
+        else:
+            self.update()
 
     def set_options(self, **kwargs):
         for key, value in kwargs.items():
@@ -65,9 +67,10 @@ class Symbol:
         
         from .parts.base import base_geometry
         from .parts.icon import icon
+        from .parts.modifiers import modifiers
         
         # Pipeline parts
-        parts = [base_geometry, icon]
+        parts = [base_geometry, icon, modifiers]
         
         for part in parts:
             res = part(self)
