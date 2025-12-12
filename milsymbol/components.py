@@ -31,4 +31,8 @@ class ColorMode:
         self.Friend = friend
         self.Hostile = hostile
         self.Neutral = neutral
+
         self.Unknown = unknown
+
+    def __getitem__(self, key):
+        return getattr(self, key)

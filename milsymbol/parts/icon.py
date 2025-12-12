@@ -21,11 +21,22 @@ def icon(symbol, ms=None):
         # In this simplified version, we define parts inside the specific SIDC module
         # or we pass a dict to be populated.
         
+
+
         # Letter based SIDCs
         if not metadata.get("numberSIDC"):
             icons = {}
-            # TODO: Call all SIDC modules. For now only Ground.
-            ground_sidc.ground(icons, None, icon_parts, metadata["STD2525"])
+
+
+            from ..sidc.lettersidc import ground as ground_sidc
+            from ..sidc.lettersidc import air as air_sidc
+            from ..sidc.lettersidc import sea as sea_sidc
+            from ..sidc.lettersidc import subsurface as subsurface_sidc
+            
+            ground_sidc.ground(icons, None, icon_parts, metadata.get("STD2525"))
+            air_sidc.air(icons, None, icon_parts, metadata.get("STD2525"), metadata=metadata, colors=colors)
+            sea_sidc.sea(icons, None, icon_parts, metadata.get("STD2525"), metadata=metadata, colors=colors)
+            subsurface_sidc.subsurface(icons, None, icon_parts, metadata.get("STD2525"), metadata=metadata, colors=colors)
             
             # Construct generic SIDC key
             # SIDC format for key: codingScheme(1) + affiliation(1) + battleDimension(1) + functionID(6)

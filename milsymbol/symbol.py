@@ -79,8 +79,16 @@ class Symbol:
             if res.get("post"):
                 self.draw_instructions = self.draw_instructions + res["post"]
                 
+
             if res.get("bbox"):
                 self.bbox.merge(res["bbox"])
+
+        # Text fields
+        from .parts.textfields import textfields
+        res = textfields(self)
+        if res:
+            self.draw_instructions = res.get("pre", []) + self.draw_instructions
+            self.draw_instructions = self.draw_instructions + res.get("post", [])
                 
         # Calculate sizes and anchors (Simplified)
         # Assuming padding and scale logic is needed
